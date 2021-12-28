@@ -18,7 +18,9 @@ class Main extends Component {
                 <h1>L33th Decentralized Storage</h1>
                 <h6 style={{ textAlign: 'center' }}>by WMouton</h6>
               </div>
-
+              <div>
+                <p>Note: This is a desktop application, the table is not yet mobile frendly.</p>
+              </div>
               <div
                 className='card mb-3 mx-auto bg-dark'
                 style={{ maxWidth: '512px' }}
