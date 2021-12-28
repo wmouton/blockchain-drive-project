@@ -11,7 +11,7 @@ class Main extends Component {
           <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '1024px' }}>
             <div className="content">
               <p>&nbsp;</p>
-              <h1>L33th Decentralized Storage starter_code</h1>
+              <h1>L33th Decentralized Storage</h1>
               {/* Creatining uploading card ... */}
                 {/* Uploading file... */}
               <p>&nbsp;</p>

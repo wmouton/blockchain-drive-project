@@ -14,7 +14,7 @@ class Navbar extends Component {
           rel="noopener noreferrer"
         >
           <img src={box} width="30" height="30" className="align-top" alt="" />
-          l33th $t0r@g3
+          l33th_$t0r@g3
         </a>
         <ul className="navbar-nav px-3">
           <b className='text-white'>{'0x0'}</b>
