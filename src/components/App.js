@@ -1,4 +1,4 @@
-//import DStorage from '../abis/DStorage.json'
+import DStorage from '../abis/DStorage.json'
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import Main from './Main';
@@ -35,18 +35,26 @@ class App extends Component {
     const accounts = await web3.eth.getAccounts();
     this.setState({ account: accounts[0] });
 
-    //Network ID
-
-    //IF got connection, get data from contracts
-    //Assign contract
-
-    //Get files amount
-
-    //Load files&sort by the newest
-
-    //Else
-    //alert Error
-    this.setState({loading: false})
+    // Network ID
+    const networkId = await web3.eth.net.getId();
+    const networkData = DStorage.networks[networkId];
+    if (networkData) {
+      // Assign contract
+      const dstorage = new web3.eth.Contract(DStorage.abi, networkData.address);
+      this.setState({ dstorage });
+      // Get files amount
+      const filesCount = await dstorage.methods.fileCount().call();
+      this.setState({ filesCount });
+      // Load files&sort by the newest
+      for (var i = filesCount; i >= 1; i--) {
+        const file = await dstorage.methods.files(i).call();
+        this.setState({
+          files: [...this.state.files, file],
+        });
+      }
+    } else {
+      window.alert('DStorage contract not deployed to detected network.');
+    }
   }
 
   // Get file from user
@@ -66,7 +74,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
+      loading: false,
     };
 
     //Bind functions
