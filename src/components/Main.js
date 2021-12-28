@@ -53,9 +53,11 @@ class Main extends Component {
                     onChange={this.props.captureFile}
                     className='text-white text-monospace'
                   />
-                  <button type='submit' className='btn-primary btn-block'>
-                    <b>Upload!</b>
-                  </button>
+                  <div style={{marginTop: "10px"}}>
+                    <button type='submit' className='btn-primary btn-block'>
+                      <b>Upload!</b>
+                    </button>
+                  </div>
                 </form>
               </div>
 
