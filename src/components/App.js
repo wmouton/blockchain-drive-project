@@ -30,10 +30,10 @@ class App extends Component {
   async loadBlockchainData() {
     //Declare Web3
     const web3 = window.web3;
-    
+
     //Load account
-    const accounts = await web3.eth.getAccounts()
-    this.setState({ account: accounts[0] })
+    const accounts = await web3.eth.getAccounts();
+    this.setState({ account: accounts[0] });
 
     //Network ID
 
@@ -46,6 +46,7 @@ class App extends Component {
 
     //Else
     //alert Error
+    this.setState({loading: false})
   }
 
   // Get file from user
@@ -64,7 +65,9 @@ class App extends Component {
   //Set states
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      loading: true,
+    };
 
     //Bind functions
   }
