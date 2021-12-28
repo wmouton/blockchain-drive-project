@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { convertBytes } from './helpers';
 import moment from 'moment';
+import lds from '../img/title/l33thDS.png';
+import wm from '../img/title/wmouton.png'
 
 class Main extends Component {
   render() {
@@ -15,11 +17,34 @@ class Main extends Component {
             <div className='content'>
               <p>&nbsp;</p>
               <div style={{ marginBottom: '50px', textAlign: 'center' }}>
-                <h1>L33th Decentralized Storage</h1>
-                <h6 style={{ textAlign: 'center' }}>by WMouton</h6>
+                {/* <h1>L33th Decentralized Storage</h1> */}
+                <div><img style={{width: '520px'}} src={lds} alt="" /></div>
+                <div><img style={{width: '220px'}} src={wm} alt="" /></div>
+                {/* <h6 style={{ textAlign: 'center' }}>by WMouton</h6> */}
               </div>
               <div>
-                <p>Note: This is a desktop application, the table is not yet mobile frendly.</p>
+                <p>
+                  Note: This is a desktop application, the table is not yet
+                  mobile frendly.
+                </p>
+                <h4>What you will need to properly use this application:</h4>
+                <ul>
+                  <li>
+                      You will need the MetaMask extension to connect to the
+                      blockchain.
+                  </li>
+                  <li>
+                      You must have Ganache installed and connect it to
+                      metamask.
+                  </li>
+                </ul>
+                <p>
+                  For a full guide see{' '}
+                  <a href='https://www.linkedin.com/pulse/using-ganache-ethereum-emulator-metamask-farhan-khan'>
+                    Using Ganache Ethereum Emulator with MetaMask
+                  </a>
+                  .
+                </p>
               </div>
               <div
                 className='card mb-3 mx-auto bg-dark'
