@@ -61,7 +61,22 @@ class App extends Component {
   }
 
   // Get file from user
-  captureFile = event => {};
+  captureFile = event => {
+    event.preventDefault()
+
+    const file = event.target.files[0]
+    const reader = new window.FileReader()
+
+    reader.readAsArrayBuffer(file)
+    reader.onloadend = () => {
+      this.setState({
+        buffer: Buffer(reader.result),
+        type: file.type,
+        name: file.name
+      })
+      console.log('buffer', this.state.buffer)
+    }
+  }
 
   //Upload File
   uploadFile = description => {

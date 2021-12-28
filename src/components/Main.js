@@ -23,11 +23,13 @@ class Main extends Component {
                 className='card mb-3 mx-auto bg-dark'
                 style={{ maxWidth: '512px' }}
               >
-                <h2 className='text-white text-monospace bg-dark'>
-                  <b>
-                    <ins>Share File</ins>
-                  </b>
-                </h2>
+                <div style={{ marginTop: '15px' }}>
+                  <h2 className='text-white text-monospace bg-dark'>
+                    <b>
+                      <ins>Share File</ins>
+                    </b>
+                  </h2>
+                </div>
                 <form
                   onSubmit={event => {
                     event.preventDefault();
@@ -53,7 +55,7 @@ class Main extends Component {
                     onChange={this.props.captureFile}
                     className='text-white text-monospace'
                   />
-                  <div style={{marginTop: "10px"}}>
+                  <div style={{ marginTop: '15px' }}>
                     <button type='submit' className='btn-primary btn-block'>
                       <b>Upload!</b>
                     </button>
