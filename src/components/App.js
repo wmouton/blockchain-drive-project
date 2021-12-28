@@ -6,9 +6,12 @@ import Web3 from 'web3';
 import './App.css';
 
 //Declare IPFS
-const ipfsClient = require('ipfs-http-client')
-const ipfs = ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' }) // leaving out the arguments will default to these values
-
+const ipfsClient = require('ipfs-http-client');
+const ipfs = ipfsClient({
+  host: 'ipfs.infura.io',
+  port: 5001,
+  protocol: 'https',
+}); // leaving out the arguments will default to these values
 
 class App extends Component {
   async componentWillMount() {
@@ -62,30 +65,38 @@ class App extends Component {
 
   // Get file from user
   captureFile = event => {
-    event.preventDefault()
+    event.preventDefault();
 
-    const file = event.target.files[0]
-    const reader = new window.FileReader()
+    const file = event.target.files[0];
+    const reader = new window.FileReader();
 
-    reader.readAsArrayBuffer(file)
+    reader.readAsArrayBuffer(file);
     reader.onloadend = () => {
       this.setState({
         buffer: Buffer(reader.result),
         type: file.type,
-        name: file.name
-      })
-      console.log('buffer', this.state.buffer)
-    }
-  }
+        name: file.name,
+      });
+      console.log('buffer', this.state.buffer);
+    };
+  };
 
   //Upload File
   uploadFile = description => {
+    console.log('Submitting file to IPFS...');
     //Add file to the IPFS
-    //Check If error
-    //Return error
-    //Set state to loading
-    //Assign value for the file without extension
-    //Call smart contract uploadFile function
+    ipfs.add(this.state.buffer, (error, result) => {
+      console.log('IPFS result', result);
+      //Check If error
+      if(error) {
+        console.error(error)
+        return
+      }
+      //Return error
+      //Set state to loading
+      //Assign value for the file without extension
+      //Call smart contract uploadFile function
+    });
   };
 
   //Set states
