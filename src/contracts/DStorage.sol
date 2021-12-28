@@ -2,6 +2,7 @@ pragma solidity ^0.5.0;
 
 contract DStorage {
   // Name
+  string public name = 'DStorage';
   // Number of files
   // Mapping fileId=>Struct 
 
