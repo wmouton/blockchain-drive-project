@@ -4,6 +4,7 @@ contract DStorage {
   // Name
   string public name = 'DStorage';
   // Number of files
+  uint public fileCount = 0;
   // Mapping fileId=>Struct 
   mapping(uint => File) public files;
 
@@ -25,7 +26,11 @@ contract DStorage {
   constructor() public {
   }
 
+
   // Upload File function
+  function uploadFile(string memory _fileHash, uint _fileSize, string memory _fileType, string memory _fileName, string memory _fileDescription) public {
+
+    
 
     // Make sure the file hash exists
 
@@ -41,9 +46,12 @@ contract DStorage {
 
 
     // Increment file id
+    fileCount ++;
 
     // Add File to the contract
+    files[fileCount] = File(fileCount, _fileHash, _fileSize, _fileType, _fileName, _fileDescription, now, msg.sender);
 
     // Trigger an event
 
+  }
 }
