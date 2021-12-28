@@ -5,8 +5,19 @@ contract DStorage {
   string public name = 'DStorage';
   // Number of files
   // Mapping fileId=>Struct 
+  mapping(uint => File) public files;
 
   // Struct
+  struct File {
+    uint fileId;
+    string fileHash;
+    uint fileSize;
+    string fileType;
+    string fileName;
+    string fileDescription;
+    uint uploadTime;
+    address payable uploader;
+  }
 
 
   // Event
